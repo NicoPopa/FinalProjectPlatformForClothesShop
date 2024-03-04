@@ -8,11 +8,16 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Shoe {
+public class Item {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    public int size;
-    public double price;
-    public int quantity;
+    public Long id;
+    public Long productId;
+
+    ///categoryID 1 = accessory
+    ///categoryID 2 = clothing
+    ///categoryID 3 = shoe
+    public Long categoryId;
 
 }

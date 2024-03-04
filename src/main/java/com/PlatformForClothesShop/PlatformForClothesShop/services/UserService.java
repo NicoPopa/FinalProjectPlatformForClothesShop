@@ -17,10 +17,19 @@ public class UserService {
     }
     public void add(AddUserDTO body){
         ShopUser shopUserToAdd = new ShopUser();
-        shopUserToAdd.name = body.name;
-        shopUserToAdd.userEmail = body.userEmail;
-        shopUserToAdd.password = body.password;
-      userRepository.save(shopUserToAdd);
+        shopUserToAdd.setName(body.name);
+        shopUserToAdd.setUserEmail(body.userEmail);
+        shopUserToAdd.setPassword(body.password);
+        userRepository.save(shopUserToAdd);
+    }
+    public void delete(Long id){
+        userRepository.deleteById(id);
+    }
+    public List<ShopUser> getAllUser(){
+        return userRepository.findAll();
+    }
+    public void updateUser(ShopUser userToBeUpdated){
+        userRepository.save(userToBeUpdated);
     }
 
 }
